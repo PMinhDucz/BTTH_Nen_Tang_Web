@@ -106,3 +106,56 @@
     color: #e2e8f0;
     font-size: 0.95rem;
 }
+
+/* --- CSS-Only Lightbox (Glassmorphism + Scale Effect) --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.85); /* Slate nhạt hơn */
+    backdrop-filter: blur(8px); /* Hiệu ứng Glassmorphism (Kính mờ) cực độc */
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 9999;
+}
+
+.lightbox:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng bouncy khi bung ảnh */
+}
+
+.lightbox:target img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #ffffff;
+    transform: rotate(90deg); /* Animation xoay nhẹ nút X */
+}
