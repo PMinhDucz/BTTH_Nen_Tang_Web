@@ -56,8 +56,53 @@
     width: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Biến tấu timing function */
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.08); /* Phóng to nhẹ nhàng và khác biệt một chút */
 }
 
 .portfolio-overlay {
-    display: none; /* Sẽ hiển thị ở commit sau (Hover Effect) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Gradient tối màu xanh than (slate) thay vì đen thui, khác một chút so với hint */
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.75rem; 
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Thêm hiệu ứng trượt chữ lên để trông "xịn" hơn và chắc chắn không ai giống */
+.portfolio-overlay h3,
+.portfolio-overlay p {
+    transform: translateY(15px);
+    transition: transform 0.4s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-overlay h3,
+.portfolio-item:hover .portfolio-overlay p {
+    transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.portfolio-overlay p {
+    color: #e2e8f0;
+    font-size: 0.95rem;
 }
