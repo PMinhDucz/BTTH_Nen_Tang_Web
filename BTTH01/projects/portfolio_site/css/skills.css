@@ -41,6 +41,15 @@
 
 /* Mobile Breakpoint */
 @media (max-width: 768px) {
+    .skills-section {
+        padding: 3rem 0;
+    }
+
+    .skills-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }

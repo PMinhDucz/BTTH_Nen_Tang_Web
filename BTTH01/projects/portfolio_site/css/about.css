@@ -42,6 +42,14 @@
 
 /* Mobile Breakpoint */
 @media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 0;
+    }
+    
+    .about-section h2 {
+        font-size: 2rem;
+    }
+
     .about-grid {
         grid-template-columns: 1fr;
     }
