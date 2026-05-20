@@ -1,17 +1,18 @@
-/* Custom Bootstrap Theme */
+/* Custom Bootstrap Theme - Brandon San Minimalist */
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: rgba(99, 102, 241, 0.1);
-    --secondary: #64748b;
-    --success: #22c55e;
-    --info: #06b6d4;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --light: #f8fafc;
-    --dark: #0f172a;
+    /* Brandon San Color Palette */
+    --primary: #111111;
+    --primary-dark: #000000;
+    --primary-light: rgba(17, 17, 17, 0.1);
+    --secondary: #767676;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f4f4f4;
+    --dark: #111111;
     --body-bg: #ffffff;
-    --body-color: #334155;
+    --body-color: #333333;
     --card-bg: #ffffff;
     --card-border: #e2e8f0;
     --navbar-bg: rgba(255, 255, 255, 0.95);
