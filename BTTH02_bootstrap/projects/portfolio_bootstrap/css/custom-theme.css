@@ -15,6 +15,18 @@
     --body-color: #333333;
     --card-bg: #ffffff;
     --card-border: #e2e8f0;
+    
+    /* Override Bootstrap default variables */
+    --bs-primary: var(--primary);
+    --bs-secondary: var(--secondary);
+    --bs-success: var(--success);
+    --bs-info: var(--info);
+    --bs-warning: var(--warning);
+    --bs-danger: var(--danger);
+    --bs-light: var(--light);
+    --bs-dark: var(--dark);
+    --bs-body-color: var(--body-color);
+    --bs-body-bg: var(--body-bg);
     --navbar-bg: rgba(255, 255, 255, 0.95);
     --navbar-border: rgba(0, 0, 0, 0.1);
     --text-muted: #94a3b8;
