@@ -10,274 +10,242 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Custom CSS (Sẽ dọn dẹp dần ở bước sau) -->
-    <link rel="stylesheet" href="css/variables.css">
+    <!-- Custom CSS (Giữ lại base.css và variables.css cho màu sắc cơ bản) -->
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/skills.css">
-    <link rel="stylesheet" href="css/portfolio.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/variables.css">
+    <style>
+        /* Tinh chỉnh Hero background thay thế cho thẻ img của mẫu Weebly */
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0,0,0,0.6);
+            background-blend-mode: overlay;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">YourName</div>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <!-- Navbar (Bootstrap Component) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-4" href="#">MY PORTFOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ms-auto đẩy menu sang phải giống hệt mẫu Weebly -->
+                <ul class="navbar-nav ms-auto fs-6 fw-semibold text-uppercase">
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#philosophy">Philosophy</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#portfolio">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Bootstrap Utilities) -->
+    <header id="home" class="hero-section min-vh-100 d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container">
+            <i class="bi bi-person-circle display-1 mb-3 text-white"></i>
+            <h1 class="display-4 fw-bold mb-4" style="letter-spacing: 2px;">
+                I AM A STUDENT & <br> FULL-STACK DEVELOPER
+            </h1>
+            <p class="lead mb-5 opacity-75 fs-4">Building digital experiences | Problem Solver</p>
+            <a href="#portfolio" class="btn btn-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow">
+                View My Work
+            </a>
+        </div>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <h1>Hi, I'm YourName</h1>
-            <p>Full-Stack Developer | UI Designer | Problem Solver</p>
-            <a href="#portfolio" class="cta-button">View My Work</a>
-        </section>
-
-        <section id="about" class="about-section">
+        <!-- Personal Introduction (2 Columns: 70/30) dùng Bootstrap Grid -->
+        <section id="philosophy" class="py-5 my-5">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="https://via.placeholder.com/400x400" alt="Profile Photo">
+                <h2 class="display-5 fw-bold text-center mb-5">Personal Introduction</h2>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-8">
+                        <p class="lead text-muted lh-lg">
+                            Hello! I am a passionate Full-Stack Developer dedicated to creating inclusive and accessible digital solutions. As a first-generation tech enthusiast, navigating the ever-evolving world of web development has been a transformative experience. I actively take on leadership roles in coding bootcamps and tech communities, mentoring peers and continuously striving to bridge the gap between complex technology and user-friendly interfaces.
+                        </p>
                     </div>
-                    <div class="about-content">
-                        <h2>About Me</h2>
-                        <p class="lead">I'm a passionate developer with 3+ years of experience building web
-                            applications.</p>
-                        <p>Specialized in Frontend development with React and Vue. Also experienced in Backend with
-                            Node.js and Python.</p>
+                    <div class="col-lg-4 text-center">
+                        <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80" class="img-fluid rounded-circle shadow-lg" style="width: 300px; height: 300px; object-fit: cover;" alt="Profile">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <h2>My Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">HTML5</span>
-                            <span class="skill-percent">95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
+        <!-- Core Values (3 Columns) dùng Bootstrap Grid -->
+        <section class="py-5 bg-light">
+            <div class="container py-4">
+                <h2 class="display-5 fw-bold text-center mb-5">CORE VALUES</h2>
+                <div class="row g-4">
+                    <div class="col-md-4 text-center px-4">
+                        <i class="bi bi-rocket-takeoff display-4 text-primary mb-3"></i>
+                        <h3 class="fw-bold mb-3">Ambition</h3>
+                        <p class="text-muted">Pushing boundaries and challenging the current ideas. Setting ambitious goals and striving to surpass them to grow professionally.</p>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">CSS3</span>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
+                    <div class="col-md-4 text-center px-4">
+                        <i class="bi bi-shield-check display-4 text-primary mb-3"></i>
+                        <h3 class="fw-bold mb-3">Resilience</h3>
+                        <p class="text-muted">Overcoming obstacles and learning from failures. Strengthening the team and empowering each other to rise above adversity.</p>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">JavaScript</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
+                    <div class="col-md-4 text-center px-4">
+                        <i class="bi bi-heart-pulse display-4 text-primary mb-3"></i>
+                        <h3 class="fw-bold mb-3">Passion</h3>
+                        <p class="text-muted">The driving force that provides endless enthusiasm. Going to great lengths to achieve goals when deeply passionate about the work.</p>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">React</span>
-                            <span class="skill-percent">80%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Identities (3 Columns) -->
+        <section class="py-5">
+            <div class="container py-4">
+                <h2 class="display-5 fw-bold text-center mb-5">Unique Leadership Identities</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <h3 class="fw-bold mb-3">Team Player</h3>
+                        <p class="text-muted">A collaborative workplace is vital. Bringing diverse ideas together to solve complex problems and leveraging team strengths to tackle large tasks.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="fw-bold mb-3">Mentor</h3>
+                        <p class="text-muted">Providing meaningful professional socialization and support. Sharing knowledge while learning from others to facilitate mutual success.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="fw-bold mb-3">Innovator</h3>
+                        <p class="text-muted">Identifying pain points and seeking ways to resolve them efficiently. Bringing fresh ideas that keep operations and processes evolving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Progress (Dùng Bootstrap Progress component thay vì code thủ công) -->
+        <section id="skills" class="py-5 bg-light">
+            <div class="container py-4">
+                <h2 class="display-5 fw-bold text-center mb-5">Technical Skills</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-bold text-uppercase">HTML & CSS / Bootstrap</span>
+                                <span class="text-primary fw-bold">95%</span>
+                            </div>
+                            <div class="progress" style="height: 12px;">
+                                <div class="progress-bar bg-primary rounded-pill" style="width: 95%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80%"></div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-bold text-uppercase">JavaScript / React</span>
+                                <span class="text-primary fw-bold">85%</span>
+                            </div>
+                            <div class="progress" style="height: 12px;">
+                                <div class="progress-bar bg-primary rounded-pill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-bold text-uppercase">Node.js / Express</span>
+                                <span class="text-primary fw-bold">80%</span>
+                            </div>
+                            <div class="progress" style="height: 12px;">
+                                <div class="progress-bar bg-primary rounded-pill" style="width: 80%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <h2>My Portfolio</h2>
-                <div class="portfolio-filters">
-                    <button class="filter-btn active">All</button>
-                    <button class="filter-btn">Web</button>
-                    <button class="filter-btn">Mobile</button>
-                    <button class="filter-btn">Design</button>
-                </div>
-                <div class="portfolio-grid">
-                    <!-- Item 1 (Web) -->
-                    <div class="portfolio-item" data-category="web">
-                        <a href="#lightbox-1" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/3b82f6/ffffff?text=E-Commerce"
-                                alt="Project 1">
-                            <div class="portfolio-overlay">
-                                <h3>E-Commerce Website</h3>
-                                <p>React + Node.js</p>
+        <!-- Portfolio Grid (Dùng Bootstrap Cards) -->
+        <section id="portfolio" class="py-5">
+            <div class="container py-4">
+                <h2 class="display-5 fw-bold text-center mb-5">Selected Projects</h2>
+                <div class="row g-4">
+                    <!-- Project 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                            <img src="https://via.placeholder.com/400x300/3b82f6/ffffff?text=E-Commerce" class="card-img-top" alt="Project 1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">E-Commerce Platform</h5>
+                                <p class="card-text text-muted">React, Node.js, MongoDB</p>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <!-- Item 2 (Web) -->
-                    <div class="portfolio-item" data-category="web">
-                        <a href="#lightbox-2" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/10b981/ffffff?text=Social+App"
-                                alt="Project 2">
-                            <div class="portfolio-overlay">
-                                <h3>Social Media App</h3>
-                                <p>Vue + Firebase</p>
+                    <!-- Project 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                            <img src="https://via.placeholder.com/400x300/10b981/ffffff?text=Social+App" class="card-img-top" alt="Project 2">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Social Network</h5>
+                                <p class="card-text text-muted">Vue.js, Firebase</p>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <!-- Item 3 (Web) -->
-                    <div class="portfolio-item" data-category="web">
-                        <a href="#lightbox-3" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/f59e0b/ffffff?text=Blog" alt="Project 3">
-                            <div class="portfolio-overlay">
-                                <h3>Corporate Blog</h3>
-                                <p>Next.js + Tailwind</p>
+                    <!-- Project 3 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                            <img src="https://via.placeholder.com/400x300/f59e0b/ffffff?text=Task+Manager" class="card-img-top" alt="Project 3">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Task Manager</h5>
+                                <p class="card-text text-muted">Angular, Express</p>
                             </div>
-                        </a>
-                    </div>
-                    <!-- Item 4 (Mobile) -->
-                    <div class="portfolio-item" data-category="mobile">
-                        <a href="#lightbox-4" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/6366f1/ffffff?text=Fitness" alt="Project 4">
-                            <div class="portfolio-overlay">
-                                <h3>Fitness Tracker</h3>
-                                <p>React Native</p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Item 5 (Mobile) -->
-                    <div class="portfolio-item" data-category="mobile">
-                        <a href="#lightbox-5" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/ec4899/ffffff?text=Delivery" alt="Project 5">
-                            <div class="portfolio-overlay">
-                                <h3>Food Delivery App</h3>
-                                <p>Flutter</p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Item 6 (Design) -->
-                    <div class="portfolio-item" data-category="design">
-                        <a href="#lightbox-6" class="lightbox-link">
-                            <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Branding" alt="Project 6">
-                            <div class="portfolio-overlay">
-                                <h3>Brand Identity</h3>
-                                <p>Figma + Illustrator</p>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- CSS-only Lightboxes -->
-                <div id="lightbox-1" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/3b82f6/ffffff?text=E-Commerce" alt="Project 1">
-                </div>
-                <div id="lightbox-2" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/10b981/ffffff?text=Social+App" alt="Project 2">
-                </div>
-                <div id="lightbox-3" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/f59e0b/ffffff?text=Blog" alt="Project 3">
-                </div>
-                <div id="lightbox-4" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/6366f1/ffffff?text=Fitness" alt="Project 4">
-                </div>
-                <div id="lightbox-5" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/ec4899/ffffff?text=Delivery" alt="Project 5">
-                </div>
-                <div id="lightbox-6" class="lightbox">
-                    <a href="#portfolio" class="lightbox-close">&times;</a>
-                    <img src="https://via.placeholder.com/800x600/8b5cf6/ffffff?text=Branding" alt="Project 6">
+            </div>
+        </section>
+        
+        <!-- Contact Form (Dùng Bootstrap Form components) -->
+        <section id="contact" class="py-5 bg-light">
+            <div class="container py-4">
+                <h2 class="display-5 fw-bold text-center mb-5">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-lg p-4 p-md-5">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label fw-bold">Your Name</label>
+                                        <input type="text" class="form-control form-control-lg bg-light" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-bold">Your Email</label>
+                                        <input type="email" class="form-control form-control-lg bg-light" id="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label fw-bold">Message</label>
+                                        <textarea class="form-control form-control-lg bg-light" id="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>Feel free to reach out. I'm always open to discussing new projects, creative ideas or
-                            opportunities to be part of your visions.</p>
-                        <div class="info-item">
-                            <span class="icon">📧</span>
-                            <span>hello@yourname.dev</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="icon">📍</span>
-                            <span>Hanoi, Vietnam</span>
-                        </div>
-                    </div>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                placeholder="How can I help you?"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">MyPortfolio</div>
-                <p class="footer-tagline">Building digital experiences with passion & code.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="GitHub">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Email">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 12.713l11.985-8.713h-23.97l11.985 8.713zm0 2.574l-12-8.725v11.438h24v-11.438l-12 8.725z" />
-                        </svg>
-                    </a>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">FOLLOW MY JOURNEY</h3>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="#" class="btn btn-outline-light rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;" aria-label="Twitter"><i class="bi bi-twitter fs-5"></i></a>
+                <a href="#" class="btn btn-outline-light rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;" aria-label="LinkedIn"><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class="btn btn-outline-light rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;" aria-label="GitHub"><i class="bi bi-github fs-5"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 MyPortfolio. Crafted with 💡 & Code.</p>
-            </div>
+            <hr class="w-25 mx-auto opacity-25">
+            <p class="text-muted mt-4 mb-0">&copy; 2026 My Portfolio. Powered by Bootstrap 5.</p>
         </div>
     </footer>
 
