@@ -1,0 +1,56 @@
+/* Skills Section */
+.skills-section {
+    padding: 5rem 0;
+    background-color: var(--color-light);
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    height: 100%;
+    width: 0; /* Bắt đầu ở 0 để làm animation */
+    transition: width 1s ease-out;
+    border-radius: 10px;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 3rem 0;
+    }
+
+    .skills-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

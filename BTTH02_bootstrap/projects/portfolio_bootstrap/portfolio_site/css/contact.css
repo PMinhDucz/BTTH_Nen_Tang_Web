@@ -1,0 +1,124 @@
+/* Contact Section */
+.contact-section {
+    padding: 6rem 0; /* Khác một chút so với 5rem bình thường */
+    background-color: var(--color-light);
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* 2 cột chia tỉ lệ 40-60 */
+    gap: 4rem;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Thêm thẻ card shadow để Contact nổi bật hơn */
+}
+
+/* Contact Info */
+.contact-info h3 {
+    font-size: 1.75rem;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+.info-item .icon {
+    font-size: 1.5rem;
+}
+
+/* Contact Form */
+.form-group {
+    margin-bottom: 1.75rem; 
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600; /* Đậm hơn bình thường để sang hơn */
+    color: var(--color-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem; /* Rộng rãi hơn */
+    border: 2px solid #cbd5e1;
+    border-radius: 10px; /* Bo tròn lớn hơn */
+    font-size: 1rem;
+    font-family: inherit;
+    background: #f8fafc; /* Nền xám nhạt */
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px; 
+}
+
+/* Focus states (Validation UI) */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); /* Vòng sáng xung quanh rất mượt */
+}
+
+/* Valid states (Optional Extra for uniqueness) */
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: #10b981; /* Đổi viền xanh lá khi nhập đúng format */
+}
+
+/* Submit button */
+.submit-btn {
+    display: inline-block;
+    width: 100%; /* Trải dài full bề ngang form cho đẹp */
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: var(--color-secondary); /* Đổi màu sang gradient/secondary */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(139, 92, 246, 0.3);
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Xuống 1 cột */
+        padding: 2rem;
+        gap: 2.5rem;
+    }
+}
