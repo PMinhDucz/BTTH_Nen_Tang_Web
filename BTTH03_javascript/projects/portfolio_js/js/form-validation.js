@@ -25,3 +25,25 @@ function validateField(input, isValid, errorMsg) {
     }
     return isValid;
 }
+
+messageInput.addEventListener('input', () => {
+    const len = messageInput.value.length;
+    charCount.textContent = len;
+    if (len >= 50) {
+        charCount.style.color = 'green';
+    } else {
+        charCount.style.color = 'gray';
+    }
+});
+
+[nameInput, subjectInput].forEach(input => {
+    input.addEventListener('blur', () => validateField(input, input.value.trim() !== '', 'This field is required'));
+});
+
+emailInput.addEventListener('blur', () => {
+    validateField(emailInput, emailRegex.test(emailInput.value), 'Please enter a valid email address');
+});
+
+messageInput.addEventListener('blur', () => {
+    validateField(messageInput, messageInput.value.length >= 50, 'Message must be at least 50 characters');
+});
