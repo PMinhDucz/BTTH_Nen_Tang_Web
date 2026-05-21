@@ -5,3 +5,5 @@ function addToCart(productId) { cart.push(productId); }
 function removeFromCart(productId) { cart = cart.filter(id => id !== productId); }
 
 function calcTotal() { return cart.reduce((sum, item) => sum + item.price, 0); }
+
+function showToast(msg) { alert(msg); }
