@@ -41,3 +41,13 @@ btnClose.addEventListener('click', () => lightbox.classList.remove('active'));
 lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.classList.remove('active');
 });
+
+btnPrev.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : itemsData.length - 1;
+    openLightbox(currentIndex);
+});
+
+btnNext.addEventListener('click', () => {
+    currentIndex = (currentIndex < itemsData.length - 1) ? currentIndex + 1 : 0;
+    openLightbox(currentIndex);
+});
