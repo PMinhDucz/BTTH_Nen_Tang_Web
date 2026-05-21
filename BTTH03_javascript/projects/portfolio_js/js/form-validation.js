@@ -47,3 +47,24 @@ emailInput.addEventListener('blur', () => {
 messageInput.addEventListener('blur', () => {
     validateField(messageInput, messageInput.value.length >= 50, 'Message must be at least 50 characters');
 });
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const isNameValid = validateField(nameInput, nameInput.value.trim() !== '', 'Required');
+    const isEmailValid = validateField(emailInput, emailRegex.test(emailInput.value), 'Invalid email');
+    const isSubjectValid = validateField(subjectInput, subjectInput.value.trim() !== '', 'Required');
+    const isMessageValid = validateField(messageInput, messageInput.value.length >= 50, 'Min 50 chars');
+
+    if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+        submitBtn.disabled = true;
+        btnText.classList.add('d-none');
+        btnLoader.classList.remove('d-none');
+
+        setTimeout(() => {
+            contactForm.style.display = 'none';
+            successMessage.classList.remove('d-none');
+        }, 1500);
+    }
+});
