@@ -8,3 +8,5 @@ function tipCalc(bill, tip) { return bill * (tip/100); }
 console.log(tipCalc(100, 15));
 
 function checkPass(p) { return p.length > 8 ? 'Strong' : 'Weak'; }
+
+document.querySelectorAll('.accordion').forEach(a => a.addEventListener('click', function() { this.classList.toggle('active'); }));
