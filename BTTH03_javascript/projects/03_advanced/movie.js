@@ -3,3 +3,5 @@ const API_KEY = 'YOUR_KEY'; async function searchMovie(query) {}
 async function searchMovie(query) { const res = await fetch(http://www.omdbapi.com/?s=+query); const data = await res.json(); return data; }
 
 function renderMovies(movies) { console.log('Rendering', movies.length, 'movies'); }
+
+let timeout; function debounceSearch(query) { clearTimeout(timeout); timeout = setTimeout(() => searchMovie(query), 500); }
