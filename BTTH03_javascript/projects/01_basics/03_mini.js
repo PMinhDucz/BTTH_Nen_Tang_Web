@@ -3,3 +3,6 @@ setInterval(clock, 1000);
 
 function randColor() { return '#' + Math.floor(Math.random()*16777215).toString(16); }
 document.body.style.background = randColor();
+
+function tipCalc(bill, tip) { return bill * (tip/100); }
+console.log(tipCalc(100, 15));
