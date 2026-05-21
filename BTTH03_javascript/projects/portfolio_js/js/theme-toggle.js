@@ -9,3 +9,15 @@ function setTheme(theme) {
         themeToggleBtn.classList.remove('dark-mode');
     }
 }
+
+const savedTheme = localStorage.getItem('portfolio_theme');
+if (savedTheme) {
+    setTheme(savedTheme);
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('portfolio_theme', newTheme);
+});
