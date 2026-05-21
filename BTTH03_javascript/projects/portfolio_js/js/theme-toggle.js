@@ -21,3 +21,14 @@ themeToggleBtn.addEventListener('click', () => {
     setTheme(newTheme);
     localStorage.setItem('portfolio_theme', newTheme);
 });
+
+if (!savedTheme) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark ? 'dark' : 'light');
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('portfolio_theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+    }
+});
