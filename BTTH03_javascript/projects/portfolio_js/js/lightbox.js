@@ -51,3 +51,10 @@ btnNext.addEventListener('click', () => {
     currentIndex = (currentIndex < itemsData.length - 1) ? currentIndex + 1 : 0;
     openLightbox(currentIndex);
 });
+
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+    if (e.key === 'ArrowLeft') btnPrev.click();
+    if (e.key === 'ArrowRight') btnNext.click();
+});
