@@ -5,3 +5,5 @@ function render() { console.log(students); }
 function addStudent(name, score) { students.push({id: Date.now(), name, score}); }
 
 function delStudent(id) { const idx = students.findIndex(s => s.id === id); students.splice(idx, 1); }
+
+function getAvg() { return students.reduce((sum, s) => sum + s.score, 0) / students.length; }
