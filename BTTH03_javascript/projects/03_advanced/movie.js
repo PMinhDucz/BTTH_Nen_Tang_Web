@@ -5,3 +5,5 @@ async function searchMovie(query) { const res = await fetch(http://www.omdbapi.c
 function renderMovies(movies) { console.log('Rendering', movies.length, 'movies'); }
 
 let timeout; function debounceSearch(query) { clearTimeout(timeout); timeout = setTimeout(() => searchMovie(query), 500); }
+
+function showError(msg) { document.getElementById('error').textContent = msg; }
