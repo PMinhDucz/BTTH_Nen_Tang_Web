@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS Todo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .todo-item { display: flex; align-items: center; margin-bottom: 5px; }
+        .completed { text-decoration: line-through; color: gray; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Vanilla JS Todo</h1>
+    <input type="text" id="todoInput" placeholder="Add a new task...">
+    <button id="addBtn">Add</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        const input = document.getElementById('todoInput');
+        const addBtn = document.getElementById('addBtn');
+        const todoList = document.getElementById('todoList');
+        let todos = [];
+
+        function render() {
+            todoList.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                
+                const span = document.createElement('span');
+                span.textContent = todo.text;
+                if (todo.completed) span.classList.add('completed');
+                
+                span.addEventListener('click', () => {
+                    todos[index].completed = !todos[index].completed;
+                    render();
+                });
+
+                const delBtn = document.createElement('button');
+                delBtn.textContent = 'Delete';
+                delBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    todos.splice(index, 1);
+                    render();
+                });
+
+                li.appendChild(span);
+                li.appendChild(delBtn);
+                todoList.appendChild(li);
+            });
+        }
+
+        addBtn.addEventListener('click', () => {
+            const text = input.value.trim();
+            if (text) {
+                todos.push({ text, completed: false });
+                input.value = '';
+                render();
+            }
+        });
+    </script>
+</body>
+</html>
