@@ -12,6 +12,10 @@ function Contact() {
   // [STATE] Lưu lỗi của các trường
   const [errors, setErrors] = useState({});
 
+  // [STATE] Trạng thái đang gửi dữ liệu
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
   // [VALIDATION] Hàm kiểm tra lỗi
   const validateField = (name, value) => {
     switch (name) {
@@ -50,6 +54,33 @@ function Contact() {
     setErrors(prev => ({ ...prev, [name]: error }));
   };
 
+  // [FEATURE] Xử lý Submit form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key]);
+      if (error) newErrors[key] = error;
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Giả lập API gọi lên server mất 1.5s
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    setIsSubmitting(false);
+    setSubmitStatus('success');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    setTimeout(() => setSubmitStatus(null), 3000);
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -57,7 +88,13 @@ function Contact() {
         <p className="section-subtitle text-center">Have a project in mind? Let's talk!</p>
 
         <div className="contact-card">
-          <form>
+          {submitStatus === 'success' && (
+            <div className="alert alert-success" style={{background: 'rgba(34, 197, 94, 0.1)', color: 'var(--success)', padding: '15px', borderRadius: '8px', marginBottom: '15px', border: '1px solid var(--success)'}}>
+              Message sent successfully! I'll get back to you soon.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit}>
             <div className="form-grid">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -121,8 +158,15 @@ function Contact() {
               <div className="char-count">{formData.message.length} characters</div>
             </div>
 
-            <button type="submit" className="btn btn-primary btn-lg w-100">
-              Send Message
+            <button type="submit" className="btn btn-primary btn-lg w-100" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <span className="spinner"></span>
+                  Sending...
+                </>
+              ) : (
+                'Send Message'
+              )}
             </button>
           </form>
         </div>
