@@ -10,6 +10,11 @@ function Portfolio() {
     const [activeFilter, setActiveFilter] = useState('All');
     const filters = ['All', 'Web', 'Mobile', 'Design'];
 
+    // LOGIC: Lọc mảng dự án gốc dựa trên trạng thái bộ lọc hiện tại
+    const filteredProjects = activeFilter === 'All' 
+        ? projects 
+        : projects.filter(project => project.category === activeFilter);
+
     return (
         <section id="portfolio" className="portfolio">
             <div className="container">
@@ -33,7 +38,7 @@ function Portfolio() {
 
                 {/* Sẽ render danh sách thẻ dự án ở các commit sau */}
                 <div className="portfolio-grid">
-                    {projects.map((project) => (
+                    {filteredProjects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
