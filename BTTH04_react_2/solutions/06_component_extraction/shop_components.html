@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Extraction - ShopVN</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        .navbar { background: #ff4d4f; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .hero { background: #fff1f0; padding: 40px 20px; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .product-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .product-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+        .product-card button { background: #ff4d4f; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-top: 10px; width: 100%; }
+        .footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // 1. Navbar Component
+        function Navbar({ cartCount }) {
+            return (
+                <nav className="navbar">
+                    <h2>ShopVN</h2>
+                    <div>Giỏ hàng ({cartCount})</div>
+                </nav>
+            );
+        }
+
+        // 2. Hero Component
+        function Hero() {
+            return (
+                <div className="hero">
+                    <h1>Khuyến mãi mùa hè - Giảm đến 50%</h1>
+                    <p>Khám phá bộ sưu tập mới nhất với giá cực sốc!</p>
+                </div>
+            );
+        }
+
+        // 3. ProductCard Component
+        function ProductCard({ product, onAddToCart }) {
+            return (
+                <div className="product-card">
+                    <img src={product.image} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <p style={{color: '#ff4d4f', fontWeight: 'bold'}}>{product.price.toLocaleString()} VNĐ</p>
+                    <button onClick={() => onAddToCart(product)}>Thêm vào giỏ</button>
+                </div>
+            );
+        }
+
+        // 4. ProductGrid Component
+        function ProductGrid({ products, onAddToCart }) {
+            return (
+                <div className="product-grid">
+                    {products.map(p => (
+                        <ProductCard key={p.id} product={p} onAddToCart={onAddToCart} />
+                    ))}
+                </div>
+            );
+        }
+
+        // 5. Footer Component
+        function Footer() {
+            return (
+                <footer className="footer">
+                    <p>&copy; 2026 ShopVN. All rights reserved.</p>
+                </footer>
+            );
+        }
+
+        // App Component (Cha)
+        function App() {
+            const [cartCount, setCartCount] = useState(0);
+
+            const products = [
+                { id: 1, name: 'Áo thun nam', price: 150000, image: 'https://via.placeholder.com/200x150?text=Ao+Thun' },
+                { id: 2, name: 'Quần Jean', price: 350000, image: 'https://via.placeholder.com/200x150?text=Quan+Jean' },
+                { id: 3, name: 'Giày Sneaker', price: 550000, image: 'https://via.placeholder.com/200x150?text=Giay+Sneaker' },
+                { id: 4, name: 'Balo chống nước', price: 250000, image: 'https://via.placeholder.com/200x150?text=Balo' },
+            ];
+
+            const handleAddToCart = (product) => {
+                setCartCount(prev => prev + 1);
+            };
+
+            return (
+                <div>
+                    <Navbar cartCount={cartCount} />
+                    <Hero />
+                    <ProductGrid products={products} onAddToCart={handleAddToCart} />
+                    <Footer />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
