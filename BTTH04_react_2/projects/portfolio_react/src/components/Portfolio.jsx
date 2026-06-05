@@ -28,7 +28,7 @@ function Portfolio() {
                     {filters.map((filter, index) => (
                         <button 
                             key={index} 
-                            className="filter-btn"
+                            className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
                             onClick={() => setActiveFilter(filter)}
                         >
                             {filter}
