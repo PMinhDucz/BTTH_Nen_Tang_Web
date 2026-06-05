@@ -9,6 +9,15 @@ function Contact() {
     message: ''
   });
 
+  // [EVENT] Xử lý sự kiện khi người dùng gõ vào form
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -27,6 +36,7 @@ function Contact() {
                   className="form-control"
                   placeholder="John Doe"
                   value={formData.name}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -39,6 +49,7 @@ function Contact() {
                   className="form-control"
                   placeholder="john@example.com"
                   value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -52,6 +63,7 @@ function Contact() {
                 className="form-control"
                 placeholder="Project Inquiry"
                 value={formData.subject}
+                onChange={handleChange}
               />
             </div>
 
@@ -64,6 +76,7 @@ function Contact() {
                 rows="5"
                 placeholder="Tell me about your project..."
                 value={formData.message}
+                onChange={handleChange}
               ></textarea>
             </div>
 
