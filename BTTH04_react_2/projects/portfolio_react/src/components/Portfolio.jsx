@@ -24,6 +24,7 @@ function Portfolio() {
                         <button 
                             key={index} 
                             className="filter-btn"
+                            onClick={() => setActiveFilter(filter)}
                         >
                             {filter}
                         </button>
