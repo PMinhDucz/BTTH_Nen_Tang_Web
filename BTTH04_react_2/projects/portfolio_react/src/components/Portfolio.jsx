@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { projectsData } from '../data/portfolio';
+import ProjectCard from './ProjectCard';
 
 function Portfolio() {
     // [STATE] Khởi tạo state để chứa danh sách dự án
@@ -15,9 +16,9 @@ function Portfolio() {
 
                 {/* Sẽ render danh sách thẻ dự án ở các commit sau */}
                 <div className="portfolio-grid">
-                    <p className="text-center text-muted" style={{gridColumn: '1 / -1'}}>
-                        Dữ liệu đã được tải vào State. Chờ render...
-                    </p>
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                    ))}
                 </div>
             </div>
         </section>
