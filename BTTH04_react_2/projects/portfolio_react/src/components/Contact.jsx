@@ -9,6 +9,26 @@ function Contact() {
     message: ''
   });
 
+  // [STATE] Lưu lỗi của các trường
+  const [errors, setErrors] = useState({});
+
+  // [VALIDATION] Hàm kiểm tra lỗi
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'name':
+        return value.trim().length >= 2 ? '' : 'Name must be at least 2 characters';
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(value) ? '' : 'Please enter a valid email address';
+      case 'subject':
+        return value.trim().length >= 5 ? '' : 'Subject must be at least 5 characters';
+      case 'message':
+        return value.trim().length >= 10 ? '' : 'Message must be at least 10 characters';
+      default:
+        return '';
+    }
+  };
+
   // [EVENT] Xử lý sự kiện khi người dùng gõ vào form
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,6 +36,18 @@ function Contact() {
       ...prev,
       [name]: value
     }));
+
+    if (errors[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
+
+  // [EVENT] Xử lý khi người dùng click ra khỏi ô nhập (Blur)
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
   };
 
   return (
@@ -33,11 +65,13 @@ function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="form-control"
+                  className={`form-control ${errors.name ? 'error' : ''}`}
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                 />
+                {errors.name && <span className="error-message">{errors.name}</span>}
               </div>
 
               <div className="form-group">
@@ -46,11 +80,13 @@ function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="form-control"
+                  className={`form-control ${errors.email ? 'error' : ''}`}
                   placeholder="john@example.com"
                   value={formData.email}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                 />
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
             </div>
 
@@ -60,11 +96,13 @@ function Contact() {
                 type="text"
                 id="subject"
                 name="subject"
-                className="form-control"
+                className={`form-control ${errors.subject ? 'error' : ''}`}
                 placeholder="Project Inquiry"
                 value={formData.subject}
                 onChange={handleChange}
+                onBlur={handleBlur}
               />
+              {errors.subject && <span className="error-message">{errors.subject}</span>}
             </div>
 
             <div className="form-group">
@@ -72,12 +110,15 @@ function Contact() {
               <textarea
                 id="message"
                 name="message"
-                className="form-control"
+                className={`form-control ${errors.message ? 'error' : ''}`}
                 rows="5"
                 placeholder="Tell me about your project..."
                 value={formData.message}
                 onChange={handleChange}
+                onBlur={handleBlur}
               ></textarea>
+              {errors.message && <span className="error-message">{errors.message}</span>}
+              <div className="char-count">{formData.message.length} characters</div>
             </div>
 
             <button type="submit" className="btn btn-primary btn-lg w-100">
